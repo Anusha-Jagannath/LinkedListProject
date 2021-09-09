@@ -13,7 +13,10 @@ public class LinkedList {
 			next = null;
 		}
 	}
-	
+	/*
+	 * method to insert data at the end
+	 * @param data
+	 */
 	public boolean add(final int data) {
 		boolean isAdded = false;
 		Node newNode = new Node(data);
@@ -32,12 +35,19 @@ public class LinkedList {
 		return isAdded;
 	}
 	
+	/*
+	 * method to insert data at beginning
+	 * @param data
+	 */
 	public void push(int data) {
 		Node newNode = new Node(data);
 		newNode.next = head;
 		head = newNode;
 	}
 	
+	/*
+	 * method to display linkedlist
+	 */
 	public void print() {
 		Node temp = head;
 		System.out.println("Linked list is");
