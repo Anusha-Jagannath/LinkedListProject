@@ -32,6 +32,12 @@ public class LinkedList {
 		return isAdded;
 	}
 	
+	public void push(int data) {
+		Node newNode = new Node(data);
+		newNode.next = head;
+		head = newNode;
+	}
+	
 	public void print() {
 		Node temp = head;
 		System.out.println("Linked list is");
