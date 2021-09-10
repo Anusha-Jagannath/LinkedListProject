@@ -45,12 +45,37 @@ public class LinkedList {
 		head = newNode;
 	}
 	
+	public void insertAtPos(int pos,int data) {
+		if(pos <= 0) {
+			System.out.println("Invalid position");
+			return;
+		}
+		else if(pos==1) {
+			push(data);
+		}
+		else
+		{
+			int count = 1;
+			Node newNode = new Node(data);
+			Node temp = head;
+			Node cur = null;
+			while(count<pos) {
+				cur = temp;
+				temp = temp.next;
+				count++;
+			}
+			newNode.next = temp;
+			cur.next = newNode;
+		}
+		
+	}
+	
 	/*
 	 * method to display linkedlist
 	 */
 	public void print() {
 		Node temp = head;
-		System.out.println("Linked list is");
+		System.out.println("\nLinked list is");
 		while(temp != null) {
 			System.out.print(temp.data+"->");
 			temp = temp.next;
