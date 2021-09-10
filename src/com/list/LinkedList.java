@@ -106,21 +106,48 @@ public class LinkedList {
 			cur.next = null;
 		}
 	}
-	
+
+	/*
+	 * method to search key in Linked list
+	 * 
+	 * @param key
+	 */
 	public void searchList(int key) {
-		if(head == null) {
+		if (head == null) {
 			System.out.println("Search not possible..list is empty");
-		}
-		else {
+		} else {
 			Node temp = head;
 			int pos = 1;
-			while(temp != null) {
-				if(temp.data == key) {
-					System.out.println("Key found at position "+pos);
+			while (temp != null) {
+				if (temp.data == key) {
+					System.out.println("Key found at position " + pos);
 					return;
 				}
 				temp = temp.next;
 				pos = pos + 1;
+			}
+			System.out.println("key not found");
+		}
+	}
+
+	/*
+	 * method to search key in Linked list
+	 * 
+	 * @param key
+	 */
+	public void insertAtKey(int key,int data) {
+		if (head == null) {
+			System.out.println("list is empty");
+		} else {
+			Node newNode = new Node(data);
+			Node temp = head;
+			while (temp != null) {
+				if (temp.data == key) {
+					newNode.next = temp.next;
+					temp.next = newNode;
+					return;
+				}
+				temp = temp.next;
 			}
 			System.out.println("key not found");
 		}
