@@ -70,6 +70,23 @@ public class LinkedList {
 		
 	}
 	
+	public void deleteAtHead() {
+		Node temp = head;
+		if(head == null) {
+			System.out.println("Deletion not possible");
+			return;
+		}
+		else if(head.next == null) {
+			temp = null;
+			
+		}
+		else
+		{
+			head = head.next;
+			temp = null;
+		}
+	}
+	
 	/*
 	 * method to display linkedlist
 	 */
