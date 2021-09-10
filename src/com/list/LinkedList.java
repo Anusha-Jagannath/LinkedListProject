@@ -131,11 +131,11 @@ public class LinkedList {
 	}
 
 	/*
-	 * method to search key in Linked list
+	 * method to insert the data after the key in Linked list
 	 * 
-	 * @param key
+	 * @param key and data
 	 */
-	public void insertAtKey(int key,int data) {
+	public void insertAtKey(int key, int data) {
 		if (head == null) {
 			System.out.println("list is empty");
 		} else {
@@ -148,6 +148,45 @@ public class LinkedList {
 					return;
 				}
 				temp = temp.next;
+			}
+			System.out.println("key not found");
+		}
+	}
+
+	/*
+	 * method to delete specified data from the Linked list
+	 * 
+	 * @param key
+	 */
+	public void DeleteAtKey(int key) {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("list is empty");
+		}
+
+		else if (head.next == null) {
+			if (head.data == key) {
+				temp = null;
+			}
+		}
+
+		else {
+			int pos = 1;
+			Node previous = temp;
+			while (temp != null) {
+				if (temp.data == key) {
+					if (pos == 1) {
+						deleteAtHead();
+						return;
+					} else {
+						previous.next = temp.next;
+						temp.next = null;
+						return;
+					}
+				}
+				previous = temp;
+				temp = temp.next;
+				pos = pos +1;
 			}
 			System.out.println("key not found");
 		}

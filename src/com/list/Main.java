@@ -9,7 +9,7 @@ public class Main {
 		list.add(30);
 		list.add(56);
 		list.print();
-		list.insertAtKey(30,40);
+		list.DeleteAtKey(90);
 		list.print();
 	}
 
