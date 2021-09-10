@@ -1,7 +1,7 @@
 package com.list;
 
 public class LinkedList {
-	
+
 	private Node head;
 
 	private class Node {
@@ -13,20 +13,21 @@ public class LinkedList {
 			next = null;
 		}
 	}
+
 	/*
 	 * method to insert data at the end
+	 * 
 	 * @param data
 	 */
 	public boolean add(final int data) {
 		boolean isAdded = false;
 		Node newNode = new Node(data);
-		if(head == null) {
+		if (head == null) {
 			head = newNode;
 			isAdded = true;
-		}
-		else {
+		} else {
 			Node temp = head;
-			while(temp.next != null) {
+			while (temp.next != null) {
 				temp = temp.next;
 			}
 			temp.next = newNode;
@@ -34,9 +35,10 @@ public class LinkedList {
 		}
 		return isAdded;
 	}
-	
+
 	/*
 	 * method to insert data at beginning
+	 * 
 	 * @param data
 	 */
 	public void push(int data) {
@@ -44,22 +46,19 @@ public class LinkedList {
 		newNode.next = head;
 		head = newNode;
 	}
-	
-	public void insertAtPos(int pos,int data) {
-		if(pos <= 0) {
+
+	public void insertAtPos(int pos, int data) {
+		if (pos <= 0) {
 			System.out.println("Invalid position");
 			return;
-		}
-		else if(pos==1) {
+		} else if (pos == 1) {
 			push(data);
-		}
-		else
-		{
+		} else {
 			int count = 1;
 			Node newNode = new Node(data);
 			Node temp = head;
 			Node cur = null;
-			while(count<pos) {
+			while (count < pos) {
 				cur = temp;
 				temp = temp.next;
 				count++;
@@ -67,43 +66,40 @@ public class LinkedList {
 			newNode.next = temp;
 			cur.next = newNode;
 		}
-		
+
 	}
 	/*
 	 * method to delete data from the head
 	 */
-	
+
 	public void deleteAtHead() {
 		Node temp = head;
-		if(head == null) {
+		if (head == null) {
 			System.out.println("Deletion not possible");
 			return;
-		}
-		else if(head.next == null) {
+		} else if (head.next == null) {
 			temp = null;
-			
-		}
-		else
-		{
+
+		} else {
 			head = head.next;
 			temp = null;
 		}
 	}
-	
+	/*
+	 * method to delete node at the end
+	 */
+
 	public void deleteAtEnd() {
 		Node temp = head;
 		Node cur = temp;
-		if(head == null) {
+		if (head == null) {
 			System.out.println("Deletion not possible");
 			return;
-		}
-		else if(head.next == null) {
+		} else if (head.next == null) {
 			temp = null;
-			
-		}
-		else
-		{
-			while(temp.next != null) {
+
+		} else {
+			while (temp.next != null) {
 				cur = temp;
 				temp = temp.next;
 			}
@@ -111,16 +107,33 @@ public class LinkedList {
 		}
 	}
 	
-	
-	
+	public void searchList(int key) {
+		if(head == null) {
+			System.out.println("Search not possible..list is empty");
+		}
+		else {
+			Node temp = head;
+			int pos = 1;
+			while(temp != null) {
+				if(temp.data == key) {
+					System.out.println("Key found at position "+pos);
+					return;
+				}
+				temp = temp.next;
+				pos = pos + 1;
+			}
+			System.out.println("key not found");
+		}
+	}
+
 	/*
 	 * method to display linkedlist
 	 */
 	public void print() {
 		Node temp = head;
 		System.out.println("\nLinked list is");
-		while(temp != null) {
-			System.out.print(temp.data+"->");
+		while (temp != null) {
+			System.out.print(temp.data + "->");
 			temp = temp.next;
 		}
 	}
