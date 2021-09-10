@@ -9,8 +9,7 @@ public class Main {
 		list.add(30);
 		list.add(56);
 		list.print();
-		list.deleteAtHead();
-		//list.insertAtPos(2, 40);
+		list.deleteAtEnd();
 		list.print();
 	}
 
