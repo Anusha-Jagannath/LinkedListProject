@@ -7,7 +7,7 @@ public class LinkedList {
 	private class Node {
 		int data;
 		Node next;
-
+		
 		Node(int data) {
 			this.data = data;
 			next = null;
@@ -38,7 +38,6 @@ public class LinkedList {
 
 	/*
 	 * method to insert data at beginning
-	 * 
 	 * @param data
 	 */
 	public void push(int data) {
@@ -169,7 +168,6 @@ public class LinkedList {
 				temp = null;
 			}
 		}
-
 		else {
 			int pos = 1;
 			Node previous = temp;
@@ -186,9 +184,9 @@ public class LinkedList {
 				}
 				previous = temp;
 				temp = temp.next;
-				pos = pos +1;
+				pos = pos + 1;
 			}
-			System.out.println("key not found");
+			System.out.println("\nkey not found");
 		}
 	}
 
@@ -201,6 +199,25 @@ public class LinkedList {
 		while (temp != null) {
 			System.out.print(temp.data + "->");
 			temp = temp.next;
+		}
+	}
+	/*
+	 * method to sort linked list
+	 */
+	public void sort() {
+		Node temp1 = head;
+		Node temp2;
+		while(temp1.next != null) {
+			temp2 = temp1.next;
+			while(temp2 != null) {
+				if(temp1.data > temp2.data) {
+					int temp = temp1.data;
+					temp1.data = temp2.data;
+					temp2.data = temp;
+				}
+				temp2 = temp2.next;
+			}
+			temp1 = temp1.next;
 		}
 	}
 }

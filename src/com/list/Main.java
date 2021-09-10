@@ -9,7 +9,7 @@ public class Main {
 		list.add(30);
 		list.add(56);
 		list.print();
-		list.DeleteAtKey(90);
+		list.sort();
 		list.print();
 	}
 
