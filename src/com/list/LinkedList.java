@@ -71,18 +71,19 @@ public class LinkedList {
 	 * method to delete data from the head
 	 */
 
-	public void deleteAtHead() {
+	public int deleteAtHead() {
 		Node temp = head;
 		if (head == null) {
-			System.out.println("Deletion not possible");
-			return;
+			System.out.println("List is empty");
+			return 0;
 		} else if (head.next == null) {
 			temp = null;
 
 		} else {
 			head = head.next;
-			temp = null;
+			temp.next = null;
 		}
+		return temp.data;
 	}
 	/*
 	 * method to delete node at the end
@@ -95,7 +96,7 @@ public class LinkedList {
 			System.out.println("Deletion not possible");
 			return;
 		} else if (head.next == null) {
-			temp = null;
+			head = null;
 
 		} else {
 			while (temp.next != null) {
